@@ -101,7 +101,7 @@ class Game {
   gameOver() {
     const top = document.querySelector("#column-top");
     top.removeEventListener("click", this.handleGameClick);
-    this.board = [];
+
     //this.gameBoard.firstChild.removeEventListener("click", this.handleGameClick);
   }
 
