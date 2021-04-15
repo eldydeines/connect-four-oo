@@ -34,6 +34,7 @@ class Game {
   //Makes the gameboard
   makeHtmlBoard() {
     const gameBoard = document.getElementById('board');
+    gameBoard.innerHTML = '';
     // make column tops (clickable area for adding a piece to that column)
     const topRow = document.createElement('tr');
     topRow.setAttribute('id', 'column-top');
@@ -81,7 +82,6 @@ class Game {
 
     if (this.currPlayer === this.p1) {
       piece.style.backgroundColor = `${this.p1.color}`;
-      console.log(this.currPlayer, this.p1);
     }
     else {
       piece.style.backgroundColor = `${this.p2.color}`;
@@ -99,10 +99,11 @@ class Game {
   }
 
   gameOver() {
-    const top = document.querySelector("#column-top");
-    top.removeEventListener("click", this.handleGameClick);
+    //const top = document.querySelector("#column-top");
+    //top.removeEventListener("click", this.handleGameClick);
+    const gameBoard = document.getElementById('board');
+    gameBoard.firstChild.removeEventListener("click", this.handleGameClick);
 
-    //this.gameBoard.firstChild.removeEventListener("click", this.handleGameClick);
   }
 
   /** handleClick: handle click of column top to play piece */
